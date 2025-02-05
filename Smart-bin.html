@@ -1,42 +1,117 @@
 <!DOCTYPE html>
 <html>
-  <head>Smart bin
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-<tittle>Informatuon about smart bin</tittle>
-  <style>
-  .centerimage {
-   display: block; 
-   margin-left:auto;
-   margin-right:auto;
-  } 
-</style>
+  <head> 
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Information about Smart Bin</title>
+    <style>
+      /* Background Color */
+      body {
+        background-color: black;
+        font-family: Arial, sans-serif;
+        color: white;
+        text-align: center;
+      }
+
+      /* Heading Animation */
+      h1 {
+        color: blue;
+        font-size: 40px;
+        font-family: cursive;
+        text-decoration: underline;
+        animation: slideIn 2s ease-in-out;
+      }
+
+      /* Image Animation */
+      .centerimage {
+        display: block;
+        margin: auto;
+        width: 300px;
+        height: 330px;
+        animation: bounce 3s infinite alternate;
+      }
+
+      /* Pulsing Border Around Image */
+      .image-container {
+        display: inline-block;
+        padding: 10px;
+        border: 5px solid blueviolet;
+        border-radius: 20px;
+        animation: pulseBorder 2s infinite alternate;
+      }
+
+      /* Text Fade-in Effect */
+      h2 {
+        font-size: 20px;
+        animation: fadeIn 3s ease-in-out;
+      }
+
+      /* Glowing Telegram Link */
+      a {
+        font-size: 20px;
+        color: cyan;
+        text-decoration: none;
+        font-weight: bold;
+        transition: 0.5s;
+      }
+      a:hover {
+        color: yellow;
+        text-shadow: 0px 0px 10px yellow;
+      }
+
+      /* Keyframes for Animations */
+      @keyframes slideIn {
+        from {
+          opacity: 0;
+          transform: translateY(-50px);
+        }
+        to {
+          opacity: 1;
+          transform: translateY(0);
+        }
+      }
+
+      @keyframes bounce {
+        0% { transform: translateY(0px); }
+        100% { transform: translateY(15px); }
+      }
+
+      @keyframes fadeIn {
+        from {
+          opacity: 0;
+        }
+        to {
+          opacity: 1;
+        }
+      }
+
+      @keyframes pulseBorder {
+        0% { border-color: blueviolet; box-shadow: 0 0 10px blueviolet; }
+        100% { border-color: cyan; box-shadow: 0 0 20px cyan; }
+      }
+    </style>
   </head>
-  <body bgcolor="black">
-   <u style="color:white"> <font color="blue" size = "5px" face="cursive">
-      <h1 align="center">Smart-Bin</h1>
-    </font></u><br>
-   <h3 align="center"style="color:white">
-   <i>The prototype model of smart bin :- </i> </h3><br>
-    <marquee behavior="alternate"direction="down" height="400px" width="330px">
-    <img src = "https://taytiksha.pages.dev/IMG_4970.PNG" class="centerimage" width="300" height="330">
-    </marquee>
-   <h2 align="center" style="color:white">
-    
-    Smart bin It's an automatic dustbin<br> that collects the waste lying<br> near the dustbin and take it inside the dustbin.<br>
-You must have often noticed that Whenever<br> you see a dustbin, there is a lot<br> of dust around it making the place<br> near the dustbin very unhygienic 
-So, Smart bin can be a smart solution<br> for that
-This dustbin uses an ultrasonic sensor to<br> sense objects around the dustbin<br> and give command to an Arduino UNO<br> which give command to a servo<br> motor attached with a swiper that<br> swipes the waste lying near the dustbin<br> by moving 180° with the help of<br> this the place near the dustbin<br> become clean and hygenic.<br>
-In the prototype model the dustbin, <br> it can collects waste only from<br>
-front of the dustbin but the real<br>
-model of the bin will have ultrasonic<br>
-sensor in all the sides which will allow<br> the dustbin to collect waste from 360°<br>
+  
+  <body>
+    <h1>Smart Bin</h1>
 
+    <h3><i>The prototype model of Smart Bin:</i></h3>
 
+    <div class="image-container">
+      <img src="https://taytiksha.pages.dev/IMG_4970.PNG" class="centerimage">
+    </div>
 
+    <h2>
+      Smart Bin is an automatic dustbin that collects waste lying near the bin and moves it inside.<br>
+      Often, waste is scattered around dustbins, making the area unhygienic.<br>
+      Smart Bin solves this problem by using **an ultrasonic sensor** to detect nearby waste.<br>
+      The sensor sends signals to **an Arduino UNO**, which then commands **a servo motor** to rotate **a swiper arm**.<br>
+      This arm moves **180°** to push waste inside the bin, keeping the surroundings clean.<br><br>
 
-     
-Contact me on telegram
+      ⚙️ **Prototype Limitation:** The current model collects waste only from the front.<br>
+      🔄 **Future Model:** The real bin will have **360° ultrasonic sensors** to collect waste from all sides.<br><br>
+
+      <i>If you are interested in my project, contact me on Telegram:</i> <br>
      <a href ="https://t.me/Taytiksha_7029">telegram</a>
 
 </h2>
