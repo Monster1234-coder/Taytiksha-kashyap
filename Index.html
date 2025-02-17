@@ -1,44 +1,144 @@
 <!DOCTYPE html>
 
 <html>
-  <head> About Taytiksha kashyap
-  <meta charset="UTF-8">
-  <title>About ME</title> 
-  <style>
-  .centerimage {
-   display: block; 
-   margin-left: auto;
-   margin-right: auto;
-  } 
-  </style>
-  
-  </head>
-  <body bgcolor="black">
-    
-      
-  
-<font size = 20px color = "red" face = "cursive">
- <h1 align = "center">About<br>intrest</h1>
-</font><br>
-    
-   <img src="https://taytiksha.pages.dev/18f2f40c-4218-41cd-83a4-5f1224c5ed71.jpeg" class="centerimage" height="300" width="300">
 
-    
-<h3 align = "center" style = "color: white">  I am Taytiksha Kashyap<br>
-  Currently I am studying in class 9 and this year I am going to class 10<br>
-   
-   I have made a project based on real world problem<br>
-   some information about that is give below.<br></h3>
-<div style = "border: 19px  dotted beige"> <font  size = "2px" ><h1 align ="center " style="color: greenyellow">Smart bin</h1></font></div><br>
-<h2 align=center style = "color: white"> As I wanna be an entrepreneur<br>
-  One day a problem came in my mind <br>
-  Sometimes some people throw garbage<br>
-  near the dustbin insted of throwing<br>
-  it inside the dustbin.<br>
-  So I made a smart bin which is a dustbin to collect waste<br>
-  for further information about that<br>
-  click on the link given below<br>
-  
+<head> About Taytiksha kashyap
+  <meta charset="UTF-8">
+  <title>About ME</title>
+  <style>
+    .image-container {
+      display: inline-block;
+      padding: 10px;
+      border: 5px solid blueviolet;
+      border-radius: 20px;
+      animation: glow 2s infinite alternate;
+    }
+
+
+    @keyframes glow {
+      0% {
+        border-color: blueviolet;
+        box-shadow: 0 0 10px blueviolet;
+      }
+
+      100% {
+        border-color: cyan;
+        box-shadow: 0 0 20px cyan;
+      }
+    }
+
+    .centerimage {
+      display: block;
+      margin-left: auto;
+      margin-right: auto;
+      height="200px"
+      width="200px"
+      border-radius: 50%;
+      animation: zoomIn 2s ease-in-out;
+
+    }
+
+    .animateborder {
+      display: inline-block;
+      padding: 10px;
+      border: 5px solid yellowgreen;
+      border-radius: 20px;
+      animation: pulseBorder 2s infinite alternate;
+    }
+
+    @keyframes pulseBorder {
+      0% {
+        border-color: yellowgreen;
+        box-shadow: 0 0 10px yellowgreen;
+      }
+
+      100% {
+        border-color: deeppink;
+        box-shadow: 0 0 20px deeppink;
+      }
+    }
+
+    a {
+      font-size: 20px;
+      color: cyan;
+      text-decoration: none;
+      transition: 0.5s;
+    }
+
+    a:hover {
+      color: yellow;
+      text-decoration: underline;
+    }
+
+    @keyframes slideIn {
+      from {
+        opacity: 0;
+        transform: translateY(-50px);
+      }
+
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    h1 {
+      color: blue;
+      font-size: 40px;
+      font-family: cursive;
+      text-decoration: underline;
+      animation: slideIn 2s ease-in-out;
+    }
+
+
+
+    @keyframes zoomIn {
+      from {
+        transform: scale(0.5);
+        opacity: 0;
+      }
+
+      to {
+        transform: scale(1);
+        opacity: 1;
+      }
+    }
+  </style>
+</head>
+
+<body bgcolor="black">
+  <p>
+    <font size=30px color="red" face="cursive">
+      <h1 align="center">About<br>intrest</1>
+  </p>
+  </font><br>
+  <div class="image-container">
+    <img src="https://taytiksha.pages.dev/18f2f40c-4218-41cd-83a4-5f1224c5ed71.jpeg" class="centerimage" height="200" width="200">
+  </div>
+<p>
+  <h3 align="center" style="color: white"> I am Taytiksha Kashyap<br>
+    Currently I am studying in class 9 and this year I am going to class 10<br>
+    I have made a project based on real world problem<br>
+    some information about that is given below.<br></h3>
+       </p>
+       
+          
+  <h1 align="center">
+    <div style="border: 19px  dotted blueviolet" class="animateborder">
+      <font size="2px">
+        <h1 align="center " style="color: greenyellow">Smart bin</h1>
+      </font>
+    </div><br>
+      <p>
+    <h2 align=center style="color: white"> As I wanna be an entrepreneur<br>
+      One day a problem came in my mind <br>
+      Sometimes some people throw garbage<br>
+      near the dustbin insted of throwing<br>
+      it inside the dustbin.<br>
+      So I made a smart bin which is a dustbin to collect waste<br>
+      for further information about that<br>
+      click on the link given below<br>
+      </p>
 <p><a href = "Smart-bin .html">Smart-Bin</a></p>
 </h2>
   </body>
