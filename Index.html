@@ -3,8 +3,13 @@
 
 <head>
   <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>About ME</title>
   <style>
+    * {
+      box-sizing: border-box;
+    }
+
     body {
       background-color: #111;
       font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
@@ -13,29 +18,32 @@
       padding: 0;
     }
 
+    .container {
+      margin: 20px auto;
+      padding: 20px;
+      width: 90%;
+      max-width: 800px;
+      background: #1c1c1c;
+      border-radius: 20px;
+      box-shadow: 0 10px 30px rgba(0, 255, 255, 0.2);
+    }
+
     h1 {
-      font-size: 40px;
+      font-size: 2.2rem;
       font-family: cursive;
       text-decoration: underline;
       color: #00ffff;
       text-align: center;
+      margin-bottom: 20px;
       animation: slideIn 2s ease-in-out;
     }
 
     h2,
     h3 {
       text-align: center;
-    }
-
-    .container {
-      margin: 40px auto;
-      padding: 30px;
-      width: 90%;
-      max-width: 800px;
-      background: #1c1c1c;
-      border-radius: 20px;
-      box-shadow: 0 10px 30px rgba(0, 255, 255, 0.2);
-      animation: fadeIn 2s ease;
+      font-size: 1.1rem;
+      line-height: 1.6;
+      margin: 15px 0;
     }
 
     .image-container {
@@ -43,15 +51,14 @@
       justify-content: center;
       padding: 10px;
       margin-bottom: 20px;
-      animation: glow 2s infinite alternate;
     }
 
     .centerimage {
-      height: 200px;
-      width: 200px;
+      height: 180px;
+      width: 180px;
       border-radius: 50%;
-      animation: zoomIn 2s ease-in-out;
       border: 5px solid blueviolet;
+      animation: zoomIn 2s ease-in-out;
     }
 
     .animateborder {
@@ -62,19 +69,21 @@
       border: 5px solid yellowgreen;
       border-radius: 20px;
       animation: pulseBorder 2s infinite alternate;
-      margin: 20px auto;
+      margin: 25px auto;
       width: fit-content;
+      max-width: 100%;
     }
 
     .animateborder h1 {
       margin: 0;
       color: greenyellow;
       text-align: center;
+      font-size: 2rem;
     }
 
     a {
       display: inline-block;
-      font-size: 18px;
+      font-size: 1rem;
       color: white;
       background-color: #00ced1;
       padding: 12px 25px;
@@ -87,18 +96,12 @@
 
     a:hover {
       background-color: #ff1493;
-      color: #fff;
       box-shadow: 0 0 25px #ff1493;
     }
 
-    @keyframes glow {
-      0% {
-        box-shadow: 0 0 10px blueviolet;
-      }
-
-      100% {
-        box-shadow: 0 0 20px cyan;
-      }
+    .button-container {
+      text-align: center;
+      margin-top: 20px;
     }
 
     @keyframes pulseBorder {
@@ -137,15 +140,23 @@
       }
     }
 
-    @keyframes fadeIn {
-      from {
-        opacity: 0;
-        transform: scale(0.95);
+    @media (max-width: 500px) {
+      h1 {
+        font-size: 1.8rem;
       }
 
-      to {
-        opacity: 1;
-        transform: scale(1);
+      .animateborder h1 {
+        font-size: 1.5rem;
+      }
+
+      .centerimage {
+        height: 140px;
+        width: 140px;
+      }
+
+      a {
+        font-size: 0.9rem;
+        padding: 10px 20px;
       }
     }
   </style>
@@ -179,7 +190,7 @@
       For more information, click the link below.
     </h2>
 
-    <div style="text-align: center;">
+    <div class="button-container">
       <a href="Smart-bin .html">Smart-Bin</a>
     </div>
   </div>
