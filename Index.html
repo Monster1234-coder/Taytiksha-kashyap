@@ -1,169 +1,188 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
   <meta charset="UTF-8">
   <title>About ME</title>
   <style>
     body {
+      background-color: #111;
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      color: white;
       margin: 0;
       padding: 0;
-      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-      background: linear-gradient(135deg, #0f2027, #203a43, #2c5364);
-      color: #fff;
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      animation: fadeIn 1.5s ease-in-out;
-    }
-
-    @keyframes fadeIn {
-      from { opacity: 0; transform: scale(0.98); }
-      to { opacity: 1; transform: scale(1); }
     }
 
     h1 {
-      font-size: 48px;
+      font-size: 40px;
+      font-family: cursive;
+      text-decoration: underline;
       color: #00ffff;
       text-align: center;
-      margin: 40px 0 20px;
-      text-shadow: 0 0 10px #0ff;
+      animation: slideIn 2s ease-in-out;
     }
 
-    .center-container {
-      background: rgba(255, 255, 255, 0.05);
-      border-radius: 20px;
-      padding: 30px;
-      box-shadow: 0 8px 30px rgba(0, 0, 0, 0.3);
-      backdrop-filter: blur(10px);
-      max-width: 800px;
-      margin: 20px;
+    h2,
+    h3 {
       text-align: center;
+    }
+
+    .container {
+      margin: 40px auto;
+      padding: 30px;
+      width: 90%;
+      max-width: 800px;
+      background: #1c1c1c;
+      border-radius: 20px;
+      box-shadow: 0 10px 30px rgba(0, 255, 255, 0.2);
+      animation: fadeIn 2s ease;
     }
 
     .image-container {
+      display: flex;
+      justify-content: center;
       padding: 10px;
-      border-radius: 50%;
-      background: linear-gradient(135deg, #7f00ff, #00ffff);
       margin-bottom: 20px;
-      box-shadow: 0 0 30px rgba(0, 255, 255, 0.3);
+      animation: glow 2s infinite alternate;
     }
 
     .centerimage {
-      width: 200px;
       height: 200px;
+      width: 200px;
       border-radius: 50%;
-      display: block;
-    }
-
-    h2, h3 {
-      color: #eee;
-      line-height: 1.6;
-      font-size: 20px;
-      margin-top: 20px;
+      animation: zoomIn 2s ease-in-out;
+      border: 5px solid blueviolet;
     }
 
     .animateborder {
-      padding: 10px 30px;
-      border: 3px solid #39ff14;
-      border-radius: 30px;
-      margin: 30px auto;
-      width: fit-content;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      padding: 10px 20px;
+      border: 5px solid yellowgreen;
+      border-radius: 20px;
       animation: pulseBorder 2s infinite alternate;
-      box-shadow: 0 0 20px rgba(57, 255, 20, 0.6);
+      margin: 20px auto;
+      width: fit-content;
+    }
+
+    .animateborder h1 {
+      margin: 0;
+      color: greenyellow;
+      text-align: center;
+    }
+
+    a {
+      display: inline-block;
+      font-size: 18px;
+      color: white;
+      background-color: #00ced1;
+      padding: 12px 25px;
+      border-radius: 30px;
+      text-decoration: none;
+      margin-top: 20px;
+      transition: all 0.4s ease;
+      box-shadow: 0 0 15px #00ced1;
+    }
+
+    a:hover {
+      background-color: #ff1493;
+      color: #fff;
+      box-shadow: 0 0 25px #ff1493;
+    }
+
+    @keyframes glow {
+      0% {
+        box-shadow: 0 0 10px blueviolet;
+      }
+
+      100% {
+        box-shadow: 0 0 20px cyan;
+      }
     }
 
     @keyframes pulseBorder {
       0% {
-        border-color: #39ff14;
-        box-shadow: 0 0 10px #39ff14;
+        border-color: yellowgreen;
+        box-shadow: 0 0 10px yellowgreen;
       }
+
       100% {
-        border-color: #ff00ff;
-        box-shadow: 0 0 20px #ff00ff;
+        border-color: deeppink;
+        box-shadow: 0 0 20px deeppink;
       }
     }
 
-    .animateborder h1 {
-      font-size: 32px;
-      margin: 0;
-      color: #39ff14;
-      text-shadow: 0 0 8px lime;
-    }
-
-    .link-button {
-      display: inline-block;
-      margin-top: 30px;
-      padding: 14px 40px;
-      font-size: 20px;
-      font-weight: bold;
-      color: #fff;
-      background: linear-gradient(to right, #00c6ff, #0072ff);
-      border: none;
-      border-radius: 50px;
-      text-decoration: none;
-      box-shadow: 0 4px 15px rgba(0, 255, 255, 0.4);
-      transition: all 0.3s ease;
-    }
-
-    .link-button:hover {
-      background: linear-gradient(to right, #ff6a00, #ee0979);
-      transform: scale(1.05);
-      box-shadow: 0 0 25px rgba(255, 105, 180, 0.6);
-      color: #fff;
-      text-shadow: 0 0 5px white;
-    }
-
-    @media screen and (max-width: 600px) {
-      h1 {
-        font-size: 36px;
+    @keyframes slideIn {
+      from {
+        opacity: 0;
+        transform: translateY(-50px);
       }
 
-      .centerimage {
-        width: 150px;
-        height: 150px;
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    @keyframes zoomIn {
+      from {
+        transform: scale(0.5);
+        opacity: 0;
       }
 
-      h2, h3 {
-        font-size: 18px;
+      to {
+        transform: scale(1);
+        opacity: 1;
+      }
+    }
+
+    @keyframes fadeIn {
+      from {
+        opacity: 0;
+        transform: scale(0.95);
       }
 
-      .link-button {
-        font-size: 18px;
-        padding: 12px 30px;
+      to {
+        opacity: 1;
+        transform: scale(1);
       }
     }
   </style>
 </head>
+
 <body>
+  <div class="container">
+    <h1>About<br>Interest</h1>
 
-  <h1>About<br>Interest</h1>
-
-  <div class="center-container">
     <div class="image-container">
-      <img src="https://taytiksha.pages.dev/18f2f40c-4218-41cd-83a4-5f1224c5ed71.jpeg" class="centerimage" alt="Taytiksha">
+      <img src="https://taytiksha.pages.dev/18f2f40c-4218-41cd-83a4-5f1224c5ed71.jpeg" class="centerimage">
     </div>
 
-    <h3>
-      I am Taytiksha Kashyap.<br>
-      Currently I am studying in class 10 and this year I’m gonna give the board examination.<br>
+    <h3>I am Taytiksha Kashyap<br>
+      Currently I am studying in class 10 and this year I am gonna give the board examination.<br>
       I have made a project based on a real-world problem.<br>
       Some information about that is given below.
     </h3>
 
     <div class="animateborder">
-      <h1>Smart Bin</h1>
+      <h1>Smart-Bin</h1>
     </div>
 
     <h2>
       As I wanna be an entrepreneur,<br>
-      one day a problem came in my mind —<br>
-      sometimes people throw garbage near the dustbin instead of inside it.<br><br>
-      So I made a Smart Bin which collects waste smartly.<br>
-      For further info, click the link below.
+      One day a problem came to my mind.<br>
+      Sometimes some people throw garbage<br>
+      near the dustbin instead of throwing<br>
+      it inside the dustbin.<br>
+      So I made a Smart Bin — a dustbin that can collect waste on its own.<br>
+      For more information, click the link below.
     </h2>
 
-    <a href="Smart-bin .html" class="link-button">🚀 View Smart-Bin</a>
+    <div style="text-align: center;">
+      <a href="Smart-bin .html">Smart-Bin</a>
+    </div>
   </div>
-
 </body>
+
 </html>
