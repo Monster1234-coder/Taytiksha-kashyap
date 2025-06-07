@@ -1,145 +1,169 @@
 <!DOCTYPE html>
-
-<html>
-
-<head> About Taytiksha kashyap
+<html lang="en">
+<head>
   <meta charset="UTF-8">
   <title>About ME</title>
   <style>
-    .image-container {
-      display: inline-block;
-      padding: 10px;
-      border: 5px solid blueviolet;
-      border-radius: 20px;
-      animation: glow 2s infinite alternate;
+    body {
+      margin: 0;
+      padding: 0;
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      background: linear-gradient(135deg, #0f2027, #203a43, #2c5364);
+      color: #fff;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      animation: fadeIn 1.5s ease-in-out;
     }
 
+    @keyframes fadeIn {
+      from { opacity: 0; transform: scale(0.98); }
+      to { opacity: 1; transform: scale(1); }
+    }
 
-    @keyframes glow {
-      0% {
-        border-color: blueviolet;
-        box-shadow: 0 0 10px blueviolet;
-      }
+    h1 {
+      font-size: 48px;
+      color: #00ffff;
+      text-align: center;
+      margin: 40px 0 20px;
+      text-shadow: 0 0 10px #0ff;
+    }
 
-      100% {
-        border-color: cyan;
-        box-shadow: 0 0 20px cyan;
-      }
+    .center-container {
+      background: rgba(255, 255, 255, 0.05);
+      border-radius: 20px;
+      padding: 30px;
+      box-shadow: 0 8px 30px rgba(0, 0, 0, 0.3);
+      backdrop-filter: blur(10px);
+      max-width: 800px;
+      margin: 20px;
+      text-align: center;
+    }
+
+    .image-container {
+      padding: 10px;
+      border-radius: 50%;
+      background: linear-gradient(135deg, #7f00ff, #00ffff);
+      margin-bottom: 20px;
+      box-shadow: 0 0 30px rgba(0, 255, 255, 0.3);
     }
 
     .centerimage {
-      display: block;
-      margin-left: auto;
-      margin-right: auto;
-      height="200px"
-      width="200px"
+      width: 200px;
+      height: 200px;
       border-radius: 50%;
-      animation: zoomIn 2s ease-in-out;
+      display: block;
+    }
 
+    h2, h3 {
+      color: #eee;
+      line-height: 1.6;
+      font-size: 20px;
+      margin-top: 20px;
     }
 
     .animateborder {
-      display: inline-block;
-      padding: 10px;
-      border: 5px solid yellowgreen;
-      border-radius: 20px;
+      padding: 10px 30px;
+      border: 3px solid #39ff14;
+      border-radius: 30px;
+      margin: 30px auto;
+      width: fit-content;
       animation: pulseBorder 2s infinite alternate;
+      box-shadow: 0 0 20px rgba(57, 255, 20, 0.6);
     }
 
     @keyframes pulseBorder {
       0% {
-        border-color: yellowgreen;
-        box-shadow: 0 0 10px yellowgreen;
+        border-color: #39ff14;
+        box-shadow: 0 0 10px #39ff14;
       }
-
       100% {
-        border-color: deeppink;
-        box-shadow: 0 0 20px deeppink;
+        border-color: #ff00ff;
+        box-shadow: 0 0 20px #ff00ff;
       }
     }
 
-    a {
+    .animateborder h1 {
+      font-size: 32px;
+      margin: 0;
+      color: #39ff14;
+      text-shadow: 0 0 8px lime;
+    }
+
+    .link-button {
+      display: inline-block;
+      margin-top: 30px;
+      padding: 14px 40px;
       font-size: 20px;
-      color: cyan;
+      font-weight: bold;
+      color: #fff;
+      background: linear-gradient(to right, #00c6ff, #0072ff);
+      border: none;
+      border-radius: 50px;
       text-decoration: none;
-      transition: 0.5s;
+      box-shadow: 0 4px 15px rgba(0, 255, 255, 0.4);
+      transition: all 0.3s ease;
     }
 
-    a:hover {
-      color: yellow;
-      text-decoration: underline;
+    .link-button:hover {
+      background: linear-gradient(to right, #ff6a00, #ee0979);
+      transform: scale(1.05);
+      box-shadow: 0 0 25px rgba(255, 105, 180, 0.6);
+      color: #fff;
+      text-shadow: 0 0 5px white;
     }
 
-    @keyframes slideIn {
-      from {
-        opacity: 0;
-        transform: translateY(-50px);
+    @media screen and (max-width: 600px) {
+      h1 {
+        font-size: 36px;
       }
 
-      to {
-        opacity: 1;
-        transform: translateY(0);
-      }
-    }
-
-    h1 {
-      color: blue;
-      font-size: 40px;
-      font-family: cursive;
-      text-decoration: underline;
-      animation: slideIn 2s ease-in-out;
-    }
-
-
-
-    @keyframes zoomIn {
-      from {
-        transform: scale(0.5);
-        opacity: 0;
+      .centerimage {
+        width: 150px;
+        height: 150px;
       }
 
-      to {
-        transform: scale(1);
-        opacity: 1;
+      h2, h3 {
+        font-size: 18px;
+      }
+
+      .link-button {
+        font-size: 18px;
+        padding: 12px 30px;
       }
     }
   </style>
 </head>
+<body>
 
-<body bgcolor="black">
-  <p>
-    <font size=30px color="red" face="cursive">
-      <h1 align="center">About<br>intrest</1>
-  </p>
-  </font><br>
-  <div class="image-container">
-    <img src="https://taytiksha.pages.dev/18f2f40c-4218-41cd-83a4-5f1224c5ed71.jpeg" class="centerimage" height="200" width="200">
+  <h1>About<br>Interest</h1>
+
+  <div class="center-container">
+    <div class="image-container">
+      <img src="https://taytiksha.pages.dev/18f2f40c-4218-41cd-83a4-5f1224c5ed71.jpeg" class="centerimage" alt="Taytiksha">
+    </div>
+
+    <h3>
+      I am Taytiksha Kashyap.<br>
+      Currently I am studying in class 10 and this year I’m gonna give the board examination.<br>
+      I have made a project based on a real-world problem.<br>
+      Some information about that is given below.
+    </h3>
+
+    <div class="animateborder">
+      <h1>Smart Bin</h1>
+    </div>
+
+    <h2>
+      As I wanna be an entrepreneur,<br>
+      one day a problem came in my mind —<br>
+      sometimes people throw garbage near the dustbin instead of inside it.<br><br>
+      So I made a Smart Bin which collects waste smartly.<br>
+      For further info, click the link below.
+    </h2>
+
+    <a href="Smart-bin .html" class="link-button">🚀 View Smart-Bin</a>
   </div>
-<p>
-  <h3 align="center" style="color: white"> I am Taytiksha Kashyap<br>
-    Currently I am studing in class 10 and this year I am gonna give the board examination <br>
-    I have made a project based on real world problem<br>
-    some information about that is given below.<br></h3>
-       </p>
-       
-          
-  <h1 align="center">
-    <div style="border: 19px  dotted blueviolet" class="animateborder">
-      <font size="2px">
-        <h1 align="center " style="color: greenyellow">Smart bin</h1>
-      </font>
-    </div><br>
-      <p>
-    <h2 align=center style="color: white"> As I wanna be an entrepreneur<br>
-      One day a problem came in my mind <br>
-      Sometimes some people throw garbage<br>
-      near the dustbin insted of throwing<br>
-      it inside the dustbin.<br>
-      So I made a smart bin which is a dustbin to collect waste<br>
-      for further information about that<br>
-      click on the link given below<br>
-      </p>
-<p><a href = "Smart-bin .html">Smart-Bin</a></p>
-</h2>
-  </body>
+
+</body>
 </html>
