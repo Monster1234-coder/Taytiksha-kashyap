@@ -5,72 +5,133 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>Class 10 Maths Worksheets</title>
   <style>
+    /* === ANIMATED BACKGROUND === */
     body {
       font-family: 'Segoe UI', sans-serif;
-      background: linear-gradient(to right, #fffde7, #e1f5fe);
-      color: #333;
-      padding: 2rem;
       margin: 0;
+      padding: 0 1rem; /* breathing space on left and right */
+      background: linear-gradient(-45deg, #f3f4f6, #e1f5fe, #fbe9e7, #e8f5e9);
+      background-size: 400% 400%;
+      animation: gradientBG 15s ease infinite;
+      color: #2c3e50;
     }
+
+    @keyframes gradientBG {
+      0% { background-position: 0% 50%; }
+      50% { background-position: 100% 50%; }
+      100% { background-position: 0% 50%; }
+    }
+
+    h1, h2, h4 {
+      text-align: center;
+      margin: 0.5rem auto;
+    }
+
     h1 {
-      text-align: center;
-      color: #1565c0;
-      font-size: 2.8rem;
-      margin-bottom: 2rem;
-      text-shadow: 1px 1px 4px #ccc;
+      font-size: 2.2rem;
+      color: #2e86de;
+      margin-top: 2rem;
+      text-wrap: balance;
     }
+
     h2 {
-      text-align: center;
-      color: lightpink;
-      font-size: 1.8rem;
-      margin-bottom: 2rem;
-      text-shadow: 1px 1px 4px #ccc;
+      font-size: 1.3rem;
+      color: #34495e;
     }
-    
+
     h4 {
-      text-align: center;
-      color: lightpink;
-      font-size: 1.5rem;
+      font-size: 1rem;
+      color: #566573;
       margin-bottom: 2rem;
-      text-shadow: 1px 1px 4px #ccc;
     }
+
+    /* === CHAPTER CARDS === */
     .chapter {
-      background: #ffffff;
-      border: 2px solid #b2ebf2;
+      background: rgba(255, 255, 255, 0.75);
+      backdrop-filter: blur(12px);
       border-radius: 15px;
-      padding: 1.2rem 1.5rem;
+      border: 1px solid rgba(255, 255, 255, 0.3);
+      padding: 1.2rem;
       margin: 1rem auto;
       max-width: 700px;
-      box-shadow: 0 4px 10px rgba(0,0,0,0.07);
-      transition: transform 0.2s ease;
+      box-shadow: 0 8px 20px rgba(0, 0, 0, 0.08);
+      text-align: center;
+      transition: all 0.3s ease;
     }
+
     .chapter:hover {
-      transform: scale(1.015);
+      transform: translateY(-5px);
+      box-shadow: 0 12px 28px rgba(0, 0, 0, 0.15);
     }
+
     .chapter h2 {
-      color: #00796b;
-      font-size: 1.6rem;
+      font-size: 1.2rem;
       margin-bottom: 0.6rem;
     }
+
     .chapter a {
+      display: inline-block;
       text-decoration: none;
-      background: #ff7043;
+      background: #0984e3;
       color: white;
-      padding: 0.6rem 1.1rem;
-      border-radius: 8px;
+      padding: 0.5rem 1rem;
+      border-radius: 6px;
       font-weight: bold;
+      font-size: 0.95rem;
       transition: background 0.3s ease;
     }
+
     .chapter a:hover {
-      background: #ff5722;
+      background: #0652dd;
+    }
+
+    /* === ABOUT SECTION === */
+    .about {
+      background: #ffffffee;
+      padding: 1.5rem;
+      border-radius: 15px;
+      max-width: 700px;
+      margin: 2rem auto;
+      text-align: center;
+      box-shadow: 0 8px 24px rgba(0, 0, 0, 0.1);
+    }
+
+    .about h2 {
+      font-size: 1.4rem;
+      margin-bottom: 0.8rem;
+    }
+
+    .about p {
+      font-size: 1rem;
+      line-height: 1.6;
+      color: #444;
+    }
+
+    /* === FOOTER === */
+    footer {
+      background: #2c3e50;
+      color: #ecf0f1;
+      text-align: center;
+      padding: 1rem 0.5rem;
+      font-size: 0.9rem;
+      margin-top: 3rem;
+      border-top: 2px solid #444;
+    }
+
+    @media (min-width: 768px) {
+      h1 { font-size: 2.8rem; }
+      h2 { font-size: 1.5rem; }
+      h4 { font-size: 1.1rem; }
+      body { padding: 0; } /* remove extra border on large screens */
     }
   </style>
 </head>
 <body>
 
   <h1>📘 Class 10 Maths Worksheets</h1>
-<h2>Here you will find chapter wise worksheets of class 10th Mathematics chapters.</h2><h4>
-These worksheets contains questions of CBSE board examination of class 10.<br>You can test your self and do practice for your examination.</h4>
+  <h2>Well-Organized Chapter-wise Practice Sets</h2>
+  <h4>Based on CBSE Board Curriculum – Practice, Revise & Excel! 💪</h4>
+
   <div class="chapter">
     <h2>Chapter 1: Real Numbers</h2>
     <a href="WORKSHEET 1-1.pdf" target="_blank">Download Worksheet</a>
@@ -95,10 +156,27 @@ These worksheets contains questions of CBSE board examination of class 10.<br>Yo
     <h2>Chapter 4: Quadratic Equations</h2>
     <a href="WORKSHEET -4.pdf" target="_blank">Download Worksheet</a>
   </div>
+
   <div class="chapter">
-    <h2>Visit my website for my info</h2>
-  <a href=https://taytiksha-kashyap.pages.dev/Index>click here</a>
+    <h2>Visit My Profile</h2>
+    <a href="https://taytiksha-kashyap.pages.dev/Index" target="_blank">Click here</a>
   </div>
+
+  <!-- About Section -->
+  <div class="about">
+    <h2>About This Project 📚</h2>
+    <p>
+      Hi! I'm Taytiksha Kashyap, a passionate student and innovator 👨‍🔬. <br>
+      I created these worksheets to help my peers strengthen their Maths concepts.<br>
+      Whether you're revising for boards or testing yourself before a class test, these worksheets will help you out!
+    </p>
+  </div>
+
+  <!-- Footer -->
+  <footer>
+    Made with ❤️ by Taytiksha Kashyap | 2025 <br>
+    Keep Practicing, Keep Learning!
+  </footer>
 
 </body>
 </html>
