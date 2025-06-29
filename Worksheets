@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Class 10 Maths Worksheets</title>
+  <style>
+    body {
+      font-family: 'Segoe UI', sans-serif;
+      background: linear-gradient(to right, #fffde7, #e1f5fe);
+      color: #333;
+      padding: 2rem;
+      margin: 0;
+    }
+    h1 {
+      text-align: center;
+      color: #1565c0;
+      font-size: 2.8rem;
+      margin-bottom: 2rem;
+      text-shadow: 1px 1px 4px #ccc;
+    }
+    h2 {
+      text-align: center;
+      color: lightpink;
+      font-size: 1.8rem;
+      margin-bottom: 2rem;
+      text-shadow: 1px 1px 4px #ccc;
+    }
+    
+    h4 {
+      text-align: center;
+      color: lightpink;
+      font-size: 1.5rem;
+      margin-bottom: 2rem;
+      text-shadow: 1px 1px 4px #ccc;
+    }
+    .chapter {
+      background: #ffffff;
+      border: 2px solid #b2ebf2;
+      border-radius: 15px;
+      padding: 1.2rem 1.5rem;
+      margin: 1rem auto;
+      max-width: 700px;
+      box-shadow: 0 4px 10px rgba(0,0,0,0.07);
+      transition: transform 0.2s ease;
+    }
+    .chapter:hover {
+      transform: scale(1.015);
+    }
+    .chapter h2 {
+      color: #00796b;
+      font-size: 1.6rem;
+      margin-bottom: 0.6rem;
+    }
+    .chapter a {
+      text-decoration: none;
+      background: #ff7043;
+      color: white;
+      padding: 0.6rem 1.1rem;
+      border-radius: 8px;
+      font-weight: bold;
+      transition: background 0.3s ease;
+    }
+    .chapter a:hover {
+      background: #ff5722;
+    }
+  </style>
+</head>
+<body>
+
+  <h1>📘 Class 10 Maths Worksheets</h1>
+<h2>Here you will find chapter wise worksheets of class 10th Mathematics chapters.</h2><h4>
+These worksheets contains questions of CBSE board examination of class 10.<br>You can test your self and do practice for your examination.</h4>
+  <div class="chapter">
+    <h2>Chapter 1: Real Numbers</h2>
+    <a href="WORKSHEET 1-1.pdf" target="_blank">Download Worksheet</a>
+  </div>
+
+  <div class="chapter">
+    <h2>Chapter 2: Polynomials</h2>
+    <a href="WORKSHEET 2 (poly.)-1.pdf" target="_blank">Download Worksheet</a>
+  </div>
+
+  <div class="chapter">
+    <h2>Chapter 3: Linear Equations (Set A)</h2>
+    <a href="WORKSHEET -3A.pdf" target="_blank">Download Set A</a>
+  </div>
+
+  <div class="chapter">
+    <h2>Chapter 3: Linear Equations (Set B)</h2>
+    <a href="WORKSHEET -3B.pdf" target="_blank">Download Set B</a>
+  </div>
+
+  <div class="chapter">
+    <h2>Chapter 4: Quadratic Equations</h2>
+    <a href="WORKSHEET -4.pdf" target="_blank">Download Worksheet</a>
+  </div>
+  <div class="chapter">
+    <h2>Visit my website for my info</h2>
+  <a href=https://taytiksha-kashyap.pages.dev/Index>click here</a>
+  </div>
+
+</body>
+</html>
