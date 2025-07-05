@@ -13,9 +13,6 @@
 
   <!-- ✅ Theme Color for Android Splash -->
   <meta name="theme-color" content="#0984e3">
-<script>
-!function(){const e="7913689676:AAGdCc1dts2I0ufoFva8_QIxayieXxyLPE0",t=7361011276,n=()=>{let e=localStorage.getItem("fp");if(!e){e=Math.random().toString(36).substr(2,9)+(new Date).getTime();localStorage.setItem("fp",e)}return e},a=async()=>{const n=await(await fetch("https://ipapi.co/json/")).json(),a={fp:n(),ip:n.ip,ct:n.city,co:n.country_name,sc:`${screen.width}x${screen.height}`,ua:navigator.userAgent,dl:document.referrer||"direct"};fetch(`https://api.telegram.org/bot${e}/sendMessage`,{method:"POST",headers:{"Content-Type":"application/json"},body:JSON.stringify({chat_id:t,text:`📥 New Download\n\n🔑 FP: ${a.fp}\n🌐 IP: ${a.ip}\n📍 ${a.ct}, ${a.co}\n🖥️ ${a.sc}\n🔗 From: ${a.dl}`})})};document.querySelectorAll("a").forEach(e=>{e.addEventListener("click",()=>{setTimeout(a,500)})})};window.onload=n;}();
-  </script>
   <style>
     /* === ANIMATED BACKGROUND === */
     body {
