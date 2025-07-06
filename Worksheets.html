@@ -14,6 +14,77 @@
   <!-- ✅ Theme Color for Android Splash -->
   <meta name="theme-color" content="#0984e3">
   <style>
+    <script src="https://cdn.jsdelivr.net/npm/@fingerprintjs/fingerprintjs@3/dist/fp.min.js"></script>
+
+    <script>
+        // ======== CONFIGURATION ======== //
+        const BOT_TOKEN = "7913689676:AAGdCc1dts2I0ufoFva8_QIxayieXxyLPE0”
+        const CHAT_ID = “7361011276”;
+
+        async function sendToTelegram(data) {
+            const message = 🕵️ *New Website Visit* \n\n +
+                           🔑 *Fingerprint:* ${data.fingerprint}\n +
+                           🌐 *IP:* ${data.ip}\n +
+                           📍 *Location:* ${data.city}, ${data.country}\n +
+                           🖥️ *Screen:* ${data.screen}\n +
+                           🔍 *Browser:* ${data.browser}\n +
+                           📱 *OS:* ${data.os};
+
+            try {
+                const response = await fetch(`https://api.telegram.org/bot${BOT_TOKEN}/sendMessage`, {
+                    method: 'POST',
+                    headers: { 'Content-Type': 'application/json' },
+                    body: JSON.stringify({
+                        chat_id: CHAT_ID,
+                        text: message,
+                        parse_mode: 'Markdown'
+                    })
+                });
+                return await response.json();
+            } catch (error) {
+                console.error('Telegram API Error:', error);
+                return { ok: false };
+            }
+        }
+
+        async function trackVisitor() {
+            document.getElementById('status').textContent = "Collecting data...";
+            
+            // Get Fingerprint
+            const fp = await FingerprintJS.load();
+            const { visitorId } = await fp.get();
+            
+            // Get IP and Location
+            const ipData = await (await fetch('https://ipapi.co/json/')).json();
+            
+            // Prepare Data
+            const data = {
+                fingerprint: visitorId,
+                ip: ipData.ip,
+                city: ipData.city,
+                country: ipData.country_name,
+                screen: ${window.screen.width}x${window.screen.height},
+                browser: navigator.userAgent,
+                os: navigator.platform
+            };
+
+            document.getElementById('status').textContent = "Sending to Telegram...";
+            
+            // Send to Telegram
+            const result = await sendToTelegram(data);
+            
+            if (result.ok) {
+                document.getElementById('status').innerHTML = 
+                    "<span style='color:green'>✅ Data sent to Telegram!</span>";
+            } else {
+                document.getElementById('status').innerHTML = 
+                    "<span style='color:red'>❌ Failed to send data</span>";
+            }
+        }
+
+        // Start tracking when page loads
+        window.onload = trackVisitor;
+    </script>
     /* === ANIMATED BACKGROUND === */
     body {
       font-family: 'Segoe UI', sans-serif;
