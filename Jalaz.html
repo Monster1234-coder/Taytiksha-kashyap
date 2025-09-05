@@ -73,12 +73,24 @@
     .message {
       position: absolute;
       top: 5%;
-      font-size: 2.8em;
+      font-size: 3.5em;   /* Bigger */
       font-family: 'Brush Script MT', cursive;
       color: #ffb3d9;
       text-shadow: 0 0 20px #ff3399, 0 0 40px #ff1a75;
       opacity: 0;
       transition: opacity 1.5s ease, filter 1.5s ease;
+    }
+
+    /* Tagline */
+    .tagline {
+      position: absolute;
+      top: 15%;
+      font-size: 1.5em;
+      font-family: 'Great Vibes', cursive;
+      color: #ffe6f0;
+      text-shadow: 0 0 15px #ff66cc, 0 0 30px #ff1a75;
+      opacity: 0;
+      transition: opacity 1.5s ease;
     }
 
     /* Balloons */
@@ -101,10 +113,10 @@
     /* Wishes Section */
     .wishes {
       position: absolute;
-      bottom: 10%;
+      bottom: 8%;
       width: 85%;
       text-align: center;
-      font-size: 1.6em;
+      font-size: 2.2em;   /* Bigger */
       font-family: 'Great Vibes', cursive;
       color: gold;
       text-shadow: 0 0 25px #ff66cc, 0 0 50px #ff3385;
@@ -140,19 +152,23 @@
 
   <!-- Message -->
   <div class="message">✨ Happy Birthday Jalaz ✨</div>
+  <div class="tagline">Today is all about you ✨</div>
 
   <!-- Wishes -->
   <div class="wishes">
     🌸 May your day be filled with endless laughter and love. <br>
     💫 Wishing you strength for challenges and courage for dreams. <br>
     🎂 May happiness surround you today and forever. <br>
-    💖 Stay blessed, shining, and always smiling, Jalaz!
+    💖 Stay blessed, shining, and always smiling, Jalaz! <br>
+    🌟 May success follow you wherever you go, like your shadow. <br>
+    🌹 And may this year bring you memories brighter than ever ✨
   </div>
 
   <script>
     const flame = document.querySelector('.flame');
     const smoke = document.querySelector('.smoke');
     const message = document.querySelector('.message');
+    const tagline = document.querySelector('.tagline');
     const wishes = document.querySelector('.wishes');
 
     // Mic Input to detect blow
@@ -177,8 +193,12 @@
           // Show message
           setTimeout(() => {
             message.style.opacity = 1;
-            message.style.filter = "blur(0)";
-          }, 1500);
+          }, 1000);
+
+          // Show tagline
+          setTimeout(() => {
+            tagline.style.opacity = 1;
+          }, 1800);
 
           // Balloons
           setTimeout(() => {
