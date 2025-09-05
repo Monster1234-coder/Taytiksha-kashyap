@@ -24,7 +24,6 @@
       background: linear-gradient(to bottom, #ff66b2, #b30059);
       border-radius: 25px;
       box-shadow: 0 0 50px #ff3399, inset 0 0 20px rgba(255,255,255,0.3);
-      animation: fadeCake 2s ease forwards;
     }
 
     /* Candle */
@@ -49,15 +48,14 @@
       height: 25px;
       background: radial-gradient(circle, #ffff99, #ff6600, transparent);
       border-radius: 50%;
-      animation: flicker 1s infinite;
+      animation: flicker 0.5s infinite;
     }
 
     @keyframes flicker {
       0%, 100% { transform: translateX(-50%) scale(1); }
-      50% { transform: translateX(-50%) scale(1.2); }
+      50% { transform: translateX(-50%) scale(1.3); }
     }
 
-    /* Smoke when candle blows */
     .smoke {
       opacity: 0;
       position: absolute;
@@ -68,31 +66,19 @@
       height: 50px;
       background: radial-gradient(circle, rgba(200,200,200,0.6), transparent);
       border-radius: 50%;
-      animation: smokeUp 4s ease forwards;
-      animation-delay: 4s;
-    }
-
-    @keyframes smokeUp {
-      0% { opacity: 1; transform: translateX(-50%) translateY(0); }
-      100% { opacity: 0; transform: translateX(-50%) translateY(-120px); }
+      pointer-events: none;
     }
 
     /* Happy Birthday Text */
     .message {
       position: absolute;
       top: 5%;
-      font-size: 2.5em;
+      font-size: 2.8em;
       font-family: 'Brush Script MT', cursive;
       color: #ffb3d9;
       text-shadow: 0 0 20px #ff3399, 0 0 40px #ff1a75;
       opacity: 0;
-      animation: showMsg 3s ease forwards;
-      animation-delay: 6s;
-    }
-
-    @keyframes showMsg {
-      from { opacity: 0; filter: blur(20px); }
-      to { opacity: 1; filter: blur(0); }
+      transition: opacity 1.5s ease, filter 1.5s ease;
     }
 
     /* Balloons */
@@ -102,9 +88,9 @@
       width: 45px;
       height: 65px;
       background: radial-gradient(circle at 30% 30%, #ff99cc, #cc0066);
-      border-radius: 50% 50% 50% 50%;
+      border-radius: 50%;
       opacity: 0.9;
-      animation: fly 7s linear forwards;
+      animation: fly 4s linear forwards;
     }
 
     @keyframes fly {
@@ -115,21 +101,31 @@
     /* Wishes Section */
     .wishes {
       position: absolute;
-      bottom: 12%;
-      width: 80%;
+      bottom: 10%;
+      width: 85%;
       text-align: center;
-      font-size: 1.8em;
+      font-size: 1.6em;
       font-family: 'Great Vibes', cursive;
       color: gold;
       text-shadow: 0 0 25px #ff66cc, 0 0 50px #ff3385;
       opacity: 0;
-      animation: showWishes 2.5s ease forwards;
-      animation-delay: 11s;
+      transition: opacity 2s ease;
     }
 
-    @keyframes showWishes {
-      from { opacity: 0; transform: translateY(40px); }
-      to { opacity: 1; transform: translateY(0); }
+    /* Air Particles */
+    .particle {
+      position: absolute;
+      bottom: 10%;
+      width: 8px;
+      height: 8px;
+      background: rgba(255,255,255,0.7);
+      border-radius: 50%;
+      animation: blowUp 1.5s linear forwards;
+    }
+
+    @keyframes blowUp {
+      0% { transform: translateY(0) scale(1); opacity: 1; }
+      100% { transform: translateY(-250px) scale(0.5); opacity: 0; }
     }
   </style>
 </head>
@@ -147,21 +143,74 @@
 
   <!-- Wishes -->
   <div class="wishes">
-    🎉 Wishing you endless joy, laughter & success ahead! 🎂💖  
+    🌸 May your day be filled with endless laughter and love. <br>
+    💫 Wishing you strength for challenges and courage for dreams. <br>
+    🎂 May happiness surround you today and forever. <br>
+    💖 Stay blessed, shining, and always smiling, Jalaz!
   </div>
 
   <script>
-    // Balloons animation
-    setTimeout(() => {
-      for (let i = 0; i < 12; i++) {
-        let balloon = document.createElement("div");
-        balloon.className = "balloon";
-        balloon.style.left = Math.random() * 90 + "vw";
-        balloon.style.animationDuration = (5 + Math.random() * 3) + "s";
-        document.body.appendChild(balloon);
-        setTimeout(() => balloon.remove(), 7000);
+    const flame = document.querySelector('.flame');
+    const smoke = document.querySelector('.smoke');
+    const message = document.querySelector('.message');
+    const wishes = document.querySelector('.wishes');
+
+    // Mic Input to detect blow
+    navigator.mediaDevices.getUserMedia({ audio: true }).then(stream => {
+      const audioContext = new AudioContext();
+      const source = audioContext.createMediaStreamSource(stream);
+      const analyser = audioContext.createAnalyser();
+      source.connect(analyser);
+
+      const dataArray = new Uint8Array(analyser.frequencyBinCount);
+
+      function detectBlow() {
+        analyser.getByteFrequencyData(dataArray);
+        let volume = dataArray.reduce((a, b) => a + b) / dataArray.length;
+
+        if (volume > 40) {  // Blow threshold
+          // Candle blow effect
+          flame.style.display = 'none';
+          smoke.style.opacity = 1;
+          smoke.style.animation = "smokeUp 3s ease forwards";
+
+          // Show message
+          setTimeout(() => {
+            message.style.opacity = 1;
+            message.style.filter = "blur(0)";
+          }, 1500);
+
+          // Balloons
+          setTimeout(() => {
+            for (let i = 0; i < 12; i++) {
+              let balloon = document.createElement("div");
+              balloon.className = "balloon";
+              balloon.style.left = Math.random() * 90 + "vw";
+              balloon.style.animationDuration = (3 + Math.random() * 2) + "s";
+              document.body.appendChild(balloon);
+              setTimeout(() => balloon.remove(), 4000);
+            }
+          }, 2000);
+
+          // Wishes
+          setTimeout(() => {
+            wishes.style.opacity = 1;
+          }, 4500);
+
+          // Air particles
+          for (let i = 0; i < 30; i++) {
+            let particle = document.createElement("div");
+            particle.className = "particle";
+            particle.style.left = (50 + (Math.random() * 80 - 40)) + "vw";
+            particle.style.animationDuration = (1 + Math.random()) + "s";
+            document.body.appendChild(particle);
+            setTimeout(() => particle.remove(), 2000);
+          }
+        }
+        requestAnimationFrame(detectBlow);
       }
-    }, 7000);
+      detectBlow();
+    });
   </script>
 </body>
 </html>
