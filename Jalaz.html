@@ -1,229 +1,167 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Happy Birthday Jalaz 🎂</title>
+  <meta charset="UTF-8">
+  <title>Happy Birthday Jalaz</title>
   <style>
     body {
       margin: 0;
+      padding: 0;
+      background: linear-gradient(135deg, #33001a, #ff1a75);
       height: 100vh;
-      font-family: 'Poppins', sans-serif;
       display: flex;
       justify-content: center;
       align-items: center;
       overflow: hidden;
-      background: linear-gradient(135deg, #d63384, #ff80bf, #b30059);
-      background-size: 300% 300%;
-      animation: bgMove 12s ease infinite;
-      color: #fff;
-    }
-    @keyframes bgMove {
-      0% {background-position: 0% 50%;}
-      50% {background-position: 100% 50%;}
-      100% {background-position: 0% 50%;}
+      font-family: 'Poppins', sans-serif;
     }
 
-    .container {
-      text-align: center;
-      transition: filter 1s ease, opacity 1s ease;
-    }
+    /* Cake Base */
     .cake {
-      width: 200px;
-      height: 150px;
-      background: #ff4d94;
-      border-radius: 0 0 20px 20px;
-      margin: auto;
       position: relative;
-      box-shadow: inset 0 -10px #b30059, 0 10px 20px rgba(0,0,0,.3);
+      width: 220px;
+      height: 160px;
+      background: linear-gradient(to bottom, #ff66b2, #b30059);
+      border-radius: 25px;
+      box-shadow: 0 0 50px #ff3399, inset 0 0 20px rgba(255,255,255,0.3);
+      animation: fadeCake 2s ease forwards;
     }
-    .candles {
+
+    /* Candle */
+    .candle {
+      position: absolute;
+      top: -70px;
+      left: 50%;
+      transform: translateX(-50%);
+      width: 20px;
+      height: 70px;
+      background: white;
+      border-radius: 6px;
+    }
+
+    /* Flame */
+    .flame {
+      position: absolute;
+      top: -25px;
+      left: 50%;
+      transform: translateX(-50%);
+      width: 25px;
+      height: 25px;
+      background: radial-gradient(circle, #ffff99, #ff6600, transparent);
+      border-radius: 50%;
+      animation: flicker 1s infinite;
+    }
+
+    @keyframes flicker {
+      0%, 100% { transform: translateX(-50%) scale(1); }
+      50% { transform: translateX(-50%) scale(1.2); }
+    }
+
+    /* Smoke when candle blows */
+    .smoke {
+      opacity: 0;
       position: absolute;
       top: -40px;
-      width: 100%;
-      display: flex;
-      justify-content: space-around;
-    }
-    .candle {
-      width: 12px;
-      height: 40px;
-      background: #fff;
-      border-radius: 5px;
-      position: relative;
-    }
-    .flame {
-      width: 14px;
-      height: 20px;
-      background: radial-gradient(circle, #ffeb3b, #ff9800);
+      left: 50%;
+      transform: translateX(-50%);
+      width: 50px;
+      height: 50px;
+      background: radial-gradient(circle, rgba(200,200,200,0.6), transparent);
       border-radius: 50%;
-      position: absolute;
-      top: -20px;
-      left: -1px;
-      animation: flicker .2s infinite;
-      filter: drop-shadow(0 0 6px #ffcf33);
-    }
-    @keyframes flicker {
-      0% {transform: scale(1);}
-      50% {transform: scale(1.1);}
-      100% {transform: scale(0.9);}
+      animation: smokeUp 4s ease forwards;
+      animation-delay: 4s;
     }
 
-    .instruction {
-      margin-top: 20px;
-      font-size: 18px;
-      background: rgba(0,0,0,.3);
-      display: inline-block;
-      padding: 8px 16px;
-      border-radius: 20px;
+    @keyframes smokeUp {
+      0% { opacity: 1; transform: translateX(-50%) translateY(0); }
+      100% { opacity: 0; transform: translateX(-50%) translateY(-120px); }
     }
 
-    /* Transition message */
-    .big-message {
+    /* Happy Birthday Text */
+    .message {
       position: absolute;
-      inset: 0;
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      font-size: 2em;
+      top: 5%;
+      font-size: 2.5em;
+      font-family: 'Brush Script MT', cursive;
+      color: #ffb3d9;
+      text-shadow: 0 0 20px #ff3399, 0 0 40px #ff1a75;
       opacity: 0;
-      backdrop-filter: blur(10px);
-      transition: opacity 2s ease;
-      text-shadow: 0 0 20px #000;
-      z-index: 10;
+      animation: showMsg 3s ease forwards;
+      animation-delay: 6s;
     }
-    .big-message.active {
-      opacity: 1;
+
+    @keyframes showMsg {
+      from { opacity: 0; filter: blur(20px); }
+      to { opacity: 1; filter: blur(0); }
     }
 
     /* Balloons */
     .balloon {
       position: absolute;
-      bottom: -150px;
-      width: 60px;
-      height: 80px;
-      background: pink;
-      border-radius: 50% 50% 45% 45%;
-      box-shadow: inset -5px -10px rgba(0,0,0,.2);
-      animation: floatUp 8s linear infinite;
-    }
-    .balloon::after {
-      content: '';
-      position: absolute;
-      bottom: -20px;
-      left: 50%;
-      width: 2px;
-      height: 20px;
-      background: #fff;
-      transform: translateX(-50%);
-    }
-    @keyframes floatUp {
-      0% {transform: translateY(0) scale(1);}
-      100% {transform: translateY(-120vh) scale(1.05);}
+      bottom: -120px;
+      width: 45px;
+      height: 65px;
+      background: radial-gradient(circle at 30% 30%, #ff99cc, #cc0066);
+      border-radius: 50% 50% 50% 50%;
+      opacity: 0.9;
+      animation: fly 7s linear forwards;
     }
 
-    /* Wishes page */
-    #wishes {
+    @keyframes fly {
+      0% { bottom: -120px; opacity: 1; }
+      100% { bottom: 110%; opacity: 0; }
+    }
+
+    /* Wishes Section */
+    .wishes {
       position: absolute;
-      inset: 0;
-      display: flex;
-      justify-content: center;
-      align-items: center;
+      bottom: 12%;
+      width: 80%;
       text-align: center;
+      font-size: 1.8em;
+      font-family: 'Great Vibes', cursive;
+      color: gold;
+      text-shadow: 0 0 25px #ff66cc, 0 0 50px #ff3385;
       opacity: 0;
-      pointer-events: none;
-      transition: opacity 2s ease;
-      flex-direction: column;
-      padding: 20px;
+      animation: showWishes 2.5s ease forwards;
+      animation-delay: 11s;
     }
-    #wishes.active {
-      opacity: 1;
-      pointer-events: all;
-    }
-    #wishes h1 {
-      font-size: 2em;
-      margin-bottom: 10px;
-    }
-    #wishes p {
-      max-width: 600px;
-      font-size: 1.1em;
-      line-height: 1.6;
+
+    @keyframes showWishes {
+      from { opacity: 0; transform: translateY(40px); }
+      to { opacity: 1; transform: translateY(0); }
     }
   </style>
 </head>
 <body>
-  <div class="container" id="cake-container">
-    <div class="cake">
-      <div class="candles">
-        <div class="candle"><div class="flame"></div></div>
-        <div class="candle"><div class="flame"></div></div>
-        <div class="candle"><div class="flame"></div></div>
-      </div>
+  <!-- Cake -->
+  <div class="cake">
+    <div class="candle">
+      <div class="flame"></div>
+      <div class="smoke"></div>
     </div>
-    <div class="instruction">Blow air in the speaker 🎤</div>
   </div>
 
-  <div class="big-message" id="big-message">🎂 Happy Birthday, Jalaz 🎂</div>
+  <!-- Message -->
+  <div class="message">✨ Happy Birthday Jalaz ✨</div>
 
-  <div id="wishes">
-    <h1>🎉 Many Happy Returns, Jalaz 🎉</h1>
-    <p>
-      May your birthday be filled with joy, peace, and beautiful surprises.  
-      Wishing you success, happiness, and endless smiles this year.  
-      Keep shining bright—your presence makes the world warmer. ✨💐
-    </p>
+  <!-- Wishes -->
+  <div class="wishes">
+    🎉 Wishing you endless joy, laughter & success ahead! 🎂💖  
   </div>
 
   <script>
-    const flames = document.querySelectorAll('.flame');
-    const container = document.getElementById('cake-container');
-    const bigMessage = document.getElementById('big-message');
-    const wishes = document.getElementById('wishes');
-
-    // Balloons generator
-    function createBalloon() {
-      const balloon = document.createElement('div');
-      balloon.classList.add('balloon');
-      balloon.style.left = Math.random() * 100 + 'vw';
-      balloon.style.background = ['#ff80bf', '#ff99cc', '#ff4da6'][Math.floor(Math.random()*3)];
-      balloon.style.animationDuration = (6 + Math.random()*4) + 's';
-      document.body.appendChild(balloon);
-      setTimeout(()=> balloon.remove(), 8000);
-    }
-
-    // Mic detection
-    navigator.mediaDevices.getUserMedia({ audio: true }).then(stream => {
-      const audioContext = new (window.AudioContext || window.webkitAudioContext)();
-      const mic = audioContext.createMediaStreamSource(stream);
-      const analyser = audioContext.createAnalyser();
-      analyser.fftSize = 256;
-      mic.connect(analyser);
-      const dataArray = new Uint8Array(analyser.frequencyBinCount);
-
-      function detectBlow() {
-        analyser.getByteFrequencyData(dataArray);
-        let volume = dataArray.reduce((a,b)=>a+b) / dataArray.length;
-        if(volume > 60) {
-          flames.forEach(f => {
-            f.style.transition = 'all 0.5s ease';
-            f.style.transform = 'scale(0)';
-            f.style.opacity = '0';
-          });
-          container.style.filter = 'blur(10px)';
-          setTimeout(()=>{
-            container.style.opacity = '0';
-            bigMessage.classList.add('active');
-            // Balloons
-            setInterval(createBalloon, 600);
-          },1000);
-          setTimeout(()=>{
-            bigMessage.style.opacity = '0';
-            wishes.classList.add('active');
-          },5000);
-        }
-        requestAnimationFrame(detectBlow);
+    // Balloons animation
+    setTimeout(() => {
+      for (let i = 0; i < 12; i++) {
+        let balloon = document.createElement("div");
+        balloon.className = "balloon";
+        balloon.style.left = Math.random() * 90 + "vw";
+        balloon.style.animationDuration = (5 + Math.random() * 3) + "s";
+        document.body.appendChild(balloon);
+        setTimeout(() => balloon.remove(), 7000);
       }
-      detectBlow();
-    }).catch(err=>console.log(err));
+    }, 7000);
   </script>
 </body>
 </html>
