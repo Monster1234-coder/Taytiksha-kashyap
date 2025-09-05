@@ -1,97 +1,208 @@
 <!DOCTYPE html><html lang="en">
 <head>
   <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>Happy Birthday Jalaz 🎂</title>
   <style>
-    body {
-      margin: 0;
-      height: 100vh;
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      flex-direction: column;
-      background: linear-gradient(135deg, #fbc2eb, #a6c1ee);
-      font-family: 'Poppins', sans-serif;
-    }h1 {
-  font-size: 2.5rem;
-  color: #fff;
-  margin-bottom: 20px;
-  text-shadow: 2px 2px 8px rgba(0,0,0,0.2);
+    :root{
+      --bg1:#ff7bb8;   /* metallic pink base */
+      --bg2:#ffb3d6;   /* light pink */
+      --bg3:#d46aa0;   /* deep pink */
+      --sheen:#ffffff66;
+      --card:#fff0fa;
+      --shadow: rgba(0,0,0,.18);
+    }*{box-sizing:border-box}
+html,body{height:100%}
+
+body {
+  margin: 0;
+  min-height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: stretch;
+  font-family: 'Poppins', system-ui, -apple-system, Segoe UI, Roboto, sans-serif;
+  overflow: hidden;
+  color:#fff;
+  /* Metallic pink, raised feel */
+  background:
+    radial-gradient(1200px 600px at 20% -10%, #fff6, transparent 60%),
+    radial-gradient(800px 400px at 120% 10%, #fff3, transparent 40%),
+    linear-gradient(120deg, var(--bg3), var(--bg1) 40%, var(--bg2));
+  position: relative;
+  isolation:isolate;
+}
+/* Brushed/metallic texture */
+body::before{
+  content:"";
+  position: absolute; inset:0; pointer-events:none; mix-blend-mode:overlay;
+  background:
+    repeating-linear-gradient( 90deg, #ffffff0c 0 1px, #00000005 1px 2px),
+    radial-gradient(1000px 400px at -10% 20%, #ffffff22, transparent 60%);
+  filter: contrast(110%) saturate(110%);
+}
+/* moving sheen */
+body::after{
+  content:"";
+  position:absolute; inset:-30% -30%; pointer-events:none;
+  background: conic-gradient(from 0deg, transparent 0 88%, var(--sheen) 92%, transparent 96%);
+  animation: sweep 8s linear infinite;
+  opacity:.35;
+}
+@keyframes sweep{to{transform: rotate(360deg)}}
+
+/* Layout */
+.wrap{ 
+  width:100%;
+  display:flex; 
+  flex-direction:column; 
+  align-items:center;
+  justify-content:center;
+  padding: 72px 16px 40px; /* top padding so header has room */
+  gap:28px; /* distance between header, cake, and message */
+  position: relative;
 }
 
+/* Top centered heading */
+.header{
+  position:absolute; top:16px; left:50%; transform:translateX(-50%);
+  text-align:center;
+  text-shadow: 0 6px 18px rgba(0,0,0,.25);
+}
+.header h1{
+  margin:0; font-size: clamp(22px, 5vw, 34px); letter-spacing: .5px;
+  padding:10px 18px; border-radius:14px;
+  background: linear-gradient( to bottom, #ffffff1c, #ffffff08);
+  box-shadow: 0 8px 24px var(--shadow), inset 0 1px 0 #fff3;
+  backdrop-filter: blur(4px);
+}
+
+/* Cake card (raised) */
+.cake-card{
+  display:grid; place-items:center;
+  padding: 22px 20px 36px;
+  border-radius: 22px;
+  background: linear-gradient(180deg, #ffffff2a, #ffffff12);
+  box-shadow: 0 16px 40px var(--shadow), inset 0 1px 0 #fff5;
+  backdrop-filter: blur(6px);
+}
+
+/* Cake itself */
 .cake {
   position: relative;
-  width: 200px;
-  height: 150px;
+  width: clamp(180px, 60vw, 280px);
+  aspect-ratio: 4 / 3; /* responsive height */
   background: #ffb347;
-  border-radius: 0 0 20px 20px;
-  box-shadow: inset 0 -10px #e07b39;
+  border-radius: 0 0 22px 22px;
+  box-shadow: inset 0 -12px #e07b39, 0 10px 20px rgba(0,0,0,.18);
+  transition: opacity 1s ease;
 }
 
 .candles {
   display: flex;
   justify-content: space-around;
   position: absolute;
-  top: -60px;
-  left: 0;
-  right: 0;
-  padding: 0 20px;
+  top: -22%;
+  left: 0; right: 0;
+  padding: 0 10%;
 }
 
 .candle {
-  width: 15px;
-  height: 60px;
+  width: clamp(10px, 3vw, 14px);
+  height: clamp(40px, 10vw, 56px);
   background: #fff;
   border-radius: 5px;
   position: relative;
+  box-shadow: inset 0 -4px #eee;
 }
 
 .flame {
-  width: 15px;
-  height: 20px;
+  width: clamp(10px, 3vw, 14px);
+  height: clamp(14px, 3.5vw, 20px);
   background: radial-gradient(circle, #ffeb3b, #ff9800);
   border-radius: 50%;
   position: absolute;
-  top: -20px;
-  left: 0;
-  right: 0;
-  margin: auto;
+  top: -18px; left: 0; right: 0; margin: auto;
   animation: flicker 0.2s infinite;
+  filter: drop-shadow(0 0 10px #ffcf33);
 }
 
 @keyframes flicker {
-  0% { transform: scale(1); opacity: 1; }
-  50% { transform: scale(1.1); opacity: 0.8; }
-  100% { transform: scale(0.9); opacity: 1; }
+  0% { transform: translateY(0) scale(1); opacity: 1; }
+  50% { transform: translateY(-1px) scale(1.08); opacity: 0.85; }
+  100% { transform: translateY(0) scale(0.96); opacity: 1; }
 }
 
 .message {
-  margin-top: 20px;
-  font-size: 1.2rem;
+  font-size: clamp(14px, 3.8vw, 18px);
   color: #fff;
-  background: rgba(0,0,0,0.2);
-  padding: 10px 20px;
-  border-radius: 20px;
+  background: linear-gradient(180deg, #00000033, #00000018);
+  padding: 10px 18px;
+  border-radius: 999px;
+  box-shadow: inset 0 1px 0 #fff3, 0 8px 16px var(--shadow);
+  transition: opacity 1s ease;
+  text-align:center;
 }
 
-.hidden {
-  display: none;
+/* Final wishes page */
+#finalPage {
+  position: absolute; inset:0; 
+  background: inherit; /* keep metallic pink */
+  display: flex; flex-direction: column; align-items: center; justify-content: center;
+  text-align: center; padding: 32px;
+  z-index: 10; opacity: 0; pointer-events: none; transition: opacity 1.5s ease;
 }
+#finalPage .panel{
+  max-width: 720px; width:min(92%, 720px); 
+  background: linear-gradient(180deg, #ffffff2a, #ffffff12);
+  border-radius: 22px; padding: 28px 22px; 
+  box-shadow: 0 16px 40px var(--shadow), inset 0 1px 0 #fff5;
+  backdrop-filter: blur(6px);
+}
+#finalPage.active { opacity: 1; pointer-events: all; }
+#finalPage h1{ margin: 0 0 10px; font-size: clamp(22px,5.2vw,36px); text-shadow:0 6px 18px rgba(0,0,0,.25)}
+#finalPage p{ margin:0; font-size: clamp(14px, 4vw, 18px); line-height:1.7 }
+
+.hidden{display:none}
 
   </style>
 </head>
-<body>  <h1>🎂 Happy Birthday, Jalaz 🎂</h1>  <div class="cake">
+<body>
+  <div class="wrap">
+    <!-- Top centered heading -->
+    <div class="header" id="header">
+      <h1>🎂 Happy Birthday, Jalaz 🎂</h1>
+    </div><!-- Middle: raised card with cake -->
+<div class="cake-card" id="cakeCard">
+  <div class="cake" id="cake">
     <div class="candles">
       <div class="candle"><div class="flame"></div></div>
       <div class="candle"><div class="flame"></div></div>
       <div class="candle"><div class="flame"></div></div>
     </div>
-  </div>  <div class="message">Blow air in the speaker 🎤</div>  <h1 id="finalWish" class="hidden">🎉 Happy Birthday Jalaz! 🎉</h1>  <script>
-    const flames = document.querySelectorAll('.flame');
-    const finalWish = document.getElementById('finalWish');
-    const message = document.querySelector('.message');
+  </div>
+</div>
 
-    // Microphone detection for blowing sound
+<!-- Instruction under cake -->
+<div class="message" id="message">Blow air in the speaker 🎤</div>
+
+  </div>  <!-- Wishes screen -->  <div id="finalPage">
+    <div class="panel">
+      <h1>🎉 Happy Birthday, Jalaz! 🎉</h1>
+      <p>
+        Wishing you a day full of peace, laughter, and sweet surprises.
+        May this year bring new learnings, bright moments, and success in all your goals.
+        Keep shining—your smile makes everything brighter. ✨💐
+      </p>
+    </div>
+  </div>  <script>
+    const flames = document.querySelectorAll('.flame');
+    const finalPage = document.getElementById('finalPage');
+    const message = document.getElementById('message');
+    const cake = document.getElementById('cake');
+    const cakeCard = document.getElementById('cakeCard');
+    const header = document.getElementById('header');
+
+    // Mic detection
     navigator.mediaDevices.getUserMedia({ audio: true })
       .then(stream => {
         const audioContext = new (window.AudioContext || window.webkitAudioContext)();
@@ -104,12 +215,19 @@
 
         function detectBlow() {
           analyser.getByteFrequencyData(dataArray);
-          let volume = dataArray.reduce((a, b) => a + b, 0) / dataArray.length;
+          let volume = 0;
+          for (let i=0;i<dataArray.length;i++) volume += dataArray[i];
+          volume /= dataArray.length;
 
-          if (volume > 60) { // threshold for blowing
+          if (volume > 60) { // threshold
             flames.forEach(f => f.style.display = 'none');
-            message.style.display = 'none';
-            finalWish.classList.remove('hidden');
+            message.style.opacity = '0';
+            cake.style.opacity = '0';
+            header.style.opacity = '0';
+            cakeCard.style.opacity = '0';
+            setTimeout(() => {
+              finalPage.classList.add('active');
+            }, 1200);
           }
           requestAnimationFrame(detectBlow);
         }
