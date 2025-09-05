@@ -1,0 +1,122 @@
+<!DOCTYPE html><html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Happy Birthday Jalaz 🎂</title>
+  <style>
+    body {
+      margin: 0;
+      height: 100vh;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      flex-direction: column;
+      background: linear-gradient(135deg, #fbc2eb, #a6c1ee);
+      font-family: 'Poppins', sans-serif;
+    }h1 {
+  font-size: 2.5rem;
+  color: #fff;
+  margin-bottom: 20px;
+  text-shadow: 2px 2px 8px rgba(0,0,0,0.2);
+}
+
+.cake {
+  position: relative;
+  width: 200px;
+  height: 150px;
+  background: #ffb347;
+  border-radius: 0 0 20px 20px;
+  box-shadow: inset 0 -10px #e07b39;
+}
+
+.candles {
+  display: flex;
+  justify-content: space-around;
+  position: absolute;
+  top: -60px;
+  left: 0;
+  right: 0;
+  padding: 0 20px;
+}
+
+.candle {
+  width: 15px;
+  height: 60px;
+  background: #fff;
+  border-radius: 5px;
+  position: relative;
+}
+
+.flame {
+  width: 15px;
+  height: 20px;
+  background: radial-gradient(circle, #ffeb3b, #ff9800);
+  border-radius: 50%;
+  position: absolute;
+  top: -20px;
+  left: 0;
+  right: 0;
+  margin: auto;
+  animation: flicker 0.2s infinite;
+}
+
+@keyframes flicker {
+  0% { transform: scale(1); opacity: 1; }
+  50% { transform: scale(1.1); opacity: 0.8; }
+  100% { transform: scale(0.9); opacity: 1; }
+}
+
+.message {
+  margin-top: 20px;
+  font-size: 1.2rem;
+  color: #fff;
+  background: rgba(0,0,0,0.2);
+  padding: 10px 20px;
+  border-radius: 20px;
+}
+
+.hidden {
+  display: none;
+}
+
+  </style>
+</head>
+<body>  <h1>🎂 Happy Birthday, Jalaz 🎂</h1>  <div class="cake">
+    <div class="candles">
+      <div class="candle"><div class="flame"></div></div>
+      <div class="candle"><div class="flame"></div></div>
+      <div class="candle"><div class="flame"></div></div>
+    </div>
+  </div>  <div class="message">Blow air in the speaker 🎤</div>  <h1 id="finalWish" class="hidden">🎉 Happy Birthday Jalaz! 🎉</h1>  <script>
+    const flames = document.querySelectorAll('.flame');
+    const finalWish = document.getElementById('finalWish');
+    const message = document.querySelector('.message');
+
+    // Microphone detection for blowing sound
+    navigator.mediaDevices.getUserMedia({ audio: true })
+      .then(stream => {
+        const audioContext = new (window.AudioContext || window.webkitAudioContext)();
+        const mic = audioContext.createMediaStreamSource(stream);
+        const analyser = audioContext.createAnalyser();
+        analyser.fftSize = 256;
+        mic.connect(analyser);
+
+        const dataArray = new Uint8Array(analyser.frequencyBinCount);
+
+        function detectBlow() {
+          analyser.getByteFrequencyData(dataArray);
+          let volume = dataArray.reduce((a, b) => a + b, 0) / dataArray.length;
+
+          if (volume > 60) { // threshold for blowing
+            flames.forEach(f => f.style.display = 'none');
+            message.style.display = 'none';
+            finalWish.classList.remove('hidden');
+          }
+          requestAnimationFrame(detectBlow);
+        }
+        detectBlow();
+      })
+      .catch(err => {
+        console.log('Microphone access denied', err);
+      });
+  </script></body>
+</html>
